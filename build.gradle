@@ -193,15 +193,15 @@ subprojects {
     //mavenRepo name: "Gradle", urls: "http://repo.gradle.org/gradle/plugins-snapshots/"
     //flatDir name:"localRepo",dirs: "$rootDir/lib"
   	//mavenRepo name: "Gradle", artifactUrls:  "https://repository.atlassian.com/maven2/"
-    //maven {
-    //    credentials {
-    //        username project.getProperty(deployUsernameProperty)
-    //        password project.getProperty(deployPasswordProperty)
-    //    }
-    //   	url "http://xxxxx/artifactory/repo/"
-    //}
+    maven {
+        credentials {
+            username project.getProperty(deployUsernameProperty)
+            password project.getProperty(deployPasswordProperty)
+        }
+       	url "http://127.0.0.1:8040/artifactory/repo/"
+    }
     //mavenRepo name: "center", urls: "http://maven.aliyun.com/nexus/content/groups/public/"
-    mavenCentral()
+    //mavenCentral()
     
     //mavenRepo name: "center", urls: "https://maven.aliyun.com/repository/central"
     //mavenRepo name: "jcenter", urls: "https://maven.aliyun.com/repository/jcenter"
@@ -226,10 +226,10 @@ subprojects {
 	                 // authentication(userName: project.getProperty(deployUsernameProperty), password: project.getProperty(deployPasswordProperty))
 		    }
 		   if(!levelsExists) {
-		   		snapshotRepository(url: "http://xxxx/artifactory/libs-snapshot-local", configureAuth)
-		   		repository(url: "http://xxxx/artifactory/libs-release-local", configureAuth)
+		   		snapshotRepository(url: "http://127.0.0.1:8040/artifactory/libs-snapshot-local", configureAuth)
+		   		repository(url: "http://127.0.0.1:8040/artifactory/libs-release-local", configureAuth)
 		   } else {
-		   		repository(url: 'http://xxxx/artifactory/' + project.getProperty(levelsProperty) + '-release-local', configureAuth)
+		   		repository(url: 'http://127.0.0.1:8040/artifactory/' + project.getProperty(levelsProperty) + '-release-local', configureAuth)
 		   }		    
 		  }  		  
 		}
