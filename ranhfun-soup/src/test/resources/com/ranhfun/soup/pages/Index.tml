@@ -1,0 +1,62 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+	<style type="text/css">
+        .eg th          { text-align: right; padding-right: 14px; font-weight: normal; }
+        .eg .buttons    { margin-top: 12px; }
+        DIV#alerts      { margin: auto; width: 500px; }
+        DIV.t-alert-controls { display: none; }
+    </style>
+<style>
+  #project-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  #project-icon {
+    float: left;
+    height: 32px;
+    width: 32px;
+  }
+  #project-description {
+    margin: 0;
+    padding: 0;
+  }
+  </style>    
+        <p>
+            welcome!
+        </p>
+        <t:alerts /> 
+		<!-- <t:beaneditform object="this"/> -->
+			<t:form>
+			<input t:type="textfield" t:id="project" value="person" t:options="prop:options" t:mixins="soup/autocomplete" class="input-text txt"/>
+			<input t:type="textfield" t:id="person" value="person" t:mixins="soup/autocomplete" class="input-text txt"/>
+			<br/>
+			<t:select validate="required" blankLabel="input" t:id="controller" t:mixins="soup/controllSelect" value="number" model="literal:1,2,3" /><br/>
+			<t:soup.select t:id="controlled" value="number2" model="literal:1,2,3" t:mixins="soup/controlledSelect" controller="controller" blankLabel2="input" blankLabel="input"/><br/>
+			<t:soup.select t:id="controlled22" value="number22" model="literal:4,5,6" t:mixins="soup/controlledSelect" controller="controlled" blankLabel2="input" blankLabel="input"/><br/>
+			<t:select blankLabel="input" t:id="controller2" value="number" model="literal:1,2,3" /><br/>
+			<t:select t:id="controlled2" value="number2" model="literal:1,2,3" t:mixins="soup/controlledSelect" blankOption="never" controller="controller2" blankLabel2="input" blankLabel="input"/><br/>
+			<t:textfield t:id="controllerInput" t:mixins="soup/controllInput" customer="controllerInput2" value="number2"/>
+			<t:textfield t:id="controllerInput2" t:mixins="soup/controllInput" editable="true" value="number3"/>
+			<t:textfield t:id="controllerInput3" t:mixins="soup/autocomplete" value="number2"/>
+			<t:submit/>
+			<a t:type="any" t:id="controllerLink" t:mixins="soup/controllLink" href="javascript:void(0);">领取</a>
+			<span t:type="any" t:id="controlled3" t:mixins="soup/controlledSelectText" controller="controller">ControlledSelectText111...</span>
+			<span t:type="any" t:id="controlled4" t:mixins="soup/controlledInputText" controller="controllerInput3">ControlledInputText111...</span>
+			<span t:type="any" t:id="controlled5" t:mixins="soup/controlledSelectInput" controller="controller"><input type="text" value="ControlledSelectInput111..."/></span>
+			<input t:id="date1" t:type="datetimefield" value="myDate" timePicker="true" toField="date2"/>
+			<input t:id="date2" t:type="datetimefield" value="myDate" timePicker="true" fromField="date1"/>
+			<input t:id="date3" t:type="datetimefield" value="myDate" timePicker="true"/>
+			</t:form>
+			<a t:type="actionlink" t:id="del" t:mixins="confirm" message="测试:测试" href="#">删除测试</a>
+			<a t:type="pagelinkpopup" page="test" windowName="literal:测试" features="literal:resizable,scrollbars,top=100,left=200,height=600,width=1000">弹窗测试</a>
+			<div t:id="inplace" t:type="soup/inPlaceEditor" context="literal:inplaceText" value="literal:inplaceText" width="800" height="200" />
+			<div id="test">tesetvalue222</div>
+			<input type="text" id="test2" value="test2"/>
+			<input type="hidden" id="project-id"/>
+			<p id="project-description"></p>
+			<script type="text/javascript">
+			//$("#project").tapestryFieldEventManager();
+			</script>
+</html>

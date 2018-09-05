@@ -1,0 +1,6 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <p>
+            welcome!<t:actionlink t:id="trigger">trigger</t:actionlink>
+        </p>
+</html>

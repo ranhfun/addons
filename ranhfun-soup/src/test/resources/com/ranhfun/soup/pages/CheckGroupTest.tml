@@ -1,0 +1,37 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+        <p>
+            welcome!
+        </p>
+
+		<p>
+			<t:form>
+	        <t:errors/>
+	        <t:grid t:id="orderItems" source="testos" row="obj" add="flag">
+		    	<p:flagHeader>
+						<t:soup.controlcb t:id="selectAll" value="selectAll"/>全选/取消	
+						<t:soup.controlcheckAlllink t:id="checkAll">全选</t:soup.controlcheckAlllink>&nbsp;&nbsp;-&nbsp;&nbsp;
+					    <t:soup.controlcheckNotlink t:id="checkNot">取消</t:soup.controlcheckNotlink>&nbsp;&nbsp;-&nbsp;&nbsp;
+					    <t:soup.controlcheckOpplink t:id="checkOpp">反选</t:soup.controlcheckOpplink>&nbsp;&nbsp;&nbsp;	    	
+		    	</p:flagHeader>
+		    	<p:flagCell>
+		    		<t:checkbox t:id="flag" t:mixins="soup/controlledCheckbox,soup/controlledCheckboxAll,soup/controlledCheckboxNot,soup/controlledCheckboxOpp" controller="selectAll" controllerall="checkAll" controllernot="checkNot" controlleropp="checkOpp" value="selected"/>
+		    	</p:flagCell>
+	        </t:grid>
+	        <t:soup.controlcb t:id="selectAllo" value="selectAll"/>全选/取消
+	        <t:loop t:id="looporderItems" source="testos" value="obj">
+		    	<td>
+		    		<t:checkbox t:id="flago" t:mixins="soup/controlledCheckbox" controller="selectAllo" value="selected"/>
+		    	</td>
+	        </t:loop>	        
+	        <p>
+	            <input type="submit" value="添加" class="btn_b"/>
+	        </p>	        
+	        </t:form>
+		</p>
+				<t:form>
+		<t:textarea t:id="editor"  cols="100" rows="8" style="width:700px;height:300px;"/>
+		</t:form>
+</html>

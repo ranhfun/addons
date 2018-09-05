@@ -1,0 +1,8 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+        <title>Index Page</title>
+    </head>
+    <body>
+	<h2><a t:type="actionlink" t:id="push" href="#">push.</a></h2>
+    </body>
+</html>

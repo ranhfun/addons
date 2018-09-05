@@ -1,0 +1,10 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+<body>
+        <p>
+			<div t:id="lastName" t:type="soup/inPlaceEditor" value="value" t:context="index" >sdfsd</div>
+        </p>
+      <a t:type="actionlink" t:id="lastName2" href="#">click</a>
+        </body>
+</html>

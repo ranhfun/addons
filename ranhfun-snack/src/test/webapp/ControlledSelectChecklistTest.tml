@@ -1,0 +1,10 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+        <p>
+        	<t:form>
+            <t:select t:id="color" model="literal:Red,Green,Blue"/>
+            <t:checklist t:id="handling" encoder="encoder" model="model"/>
+            </t:form>
+        </p>
+</html>

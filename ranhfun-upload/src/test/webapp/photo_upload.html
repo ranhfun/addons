@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>图片上传</title>
+<link rel="stylesheet" type="text/css" href="http://192.168.1.122/common/global.css"/>
+<link rel="stylesheet" type="text/css" href="style/css/style.css"/>
+<script type="text/javascript" src="http://192.168.1.122/common/jquery.js"></script>
+<script type="text/javascript" src="style/js/tangram.js"></script>
+</head>
+<body>
+
+    <div id="content"></div>
+    <script type="text/javascript">
+    var info = baidu.g("info");
+    var options = {
+        uploadURL: "upload/uploadjson",
+		tipHandle: function(tip){
+            jQuery(".upload_tip").html('<div class="error">上传失败 O__O"… </div>');
+        }
+        ,uploadCallBack: function(){
+            jQuery(".upload_tip").html('<div class="ok">上传成功！ </div>');
+        }
+        ,createOptions:{
+            id: "flashID",url: "style/js/avatarMaker.swf",width: "630px",height: "360px",container: "content"
+        }
+    };
+    var up = new baidu.flash.avatarMaker(options);
+    var t = function (){
+        var d = new Date();
+        return [d.getHours(),d.getMinutes(),d.getSeconds()].join(":")
+    };
+    jQuery(function(){
+         jQuery("#upload").click(function(){
+              up.upload();
+              jQuery(".upload_tip").html('<div class="ing">上传中……</div>');
+         })
+    })
+    </script>
+    
+    <div class="btn_bd">
+        
+        <!--上传过程-->
+		<div class="upload_tip">
+        </div>
+         
+        <button type="button" id="upload">上传</button>
+        
+    </div>
+    
+</body>
+</html>

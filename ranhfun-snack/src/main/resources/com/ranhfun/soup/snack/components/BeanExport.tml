@@ -1,0 +1,8 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xml:space="default"
+     class="t-beanexport-row" t:type="loop" t:source="model.propertyNames"
+     t:volatile="true" t:value="propertyName" t:propertyCheckMap="propertyCheckMap" t:propertyAliasMap="propertyAliasMap">
+    <t:snack.propertyCheck property="propertyName" object="object"
+                      model="model" overrides="overrides" propertyCheckMap="propertyCheckMap"/>
+    <!-- <t:snack.propertyAlias property="propertyName" object="object"
+                      model="model" overrides="overrides" propertyAliasMap="propertyAliasMap"/>      -->                 
+</div>

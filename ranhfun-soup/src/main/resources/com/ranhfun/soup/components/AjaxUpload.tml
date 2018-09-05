@@ -1,0 +1,7 @@
+<div class="t-upload" xml:space="default" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <div id="${clientId}"></div>
+    <div id="uploadErrorMesages" class="messages"></div> 
+</div>

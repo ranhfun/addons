@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<head>
+    <title>Consumer Request Token Authorization</title>
+</head>
+<body>
+<h1>Consumer Request Token Authorization</h1>
+<em></em>
+<p/>
+<strong>Consumer:</strong> <pre>${consumer.key}</pre><br/>
+<strong>Request Scope:</strong> <pre>${score} </pre><br/>
+<strong>Requested Permission:</strong> <pre>${permission} </pre><br/>
+<form name="token-authorization" action="${confirmURI}" method="post">
+
+   <input type="hidden" name="xoauth_end_user_decision" value="yes"/>
+   <input type="hidden" name="oauth_token" value="${requestToken.token}"/>
+   
+   <button type="submit">Click to authorize</button>
+</form>
+</body>
+</html>

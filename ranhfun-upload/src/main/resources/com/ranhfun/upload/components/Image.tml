@@ -1,0 +1,8 @@
+<div class="t-upload" xml:space="default" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <div id="${clientId}"></div>
+    <input type="button" value="上传" id="sbutton"/>
+    
+</div>

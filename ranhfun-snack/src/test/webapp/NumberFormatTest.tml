@@ -1,0 +1,10 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <p>
+        numberformat.
+    </p>
+    
+    <p>
+        <t:snack.numberformat value="literal:-1000000000055555555"/>
+    </p>
+</html>

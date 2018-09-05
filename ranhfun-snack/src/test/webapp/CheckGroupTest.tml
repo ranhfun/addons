@@ -1,0 +1,34 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+        <p>
+            welcome!
+        </p>
+
+		<p>
+			<t:form>
+	        <t:errors/>
+	        <t:grid t:id="orderItems" source="testos" row="obj" add="flag">
+		    	<p:flagHeader>
+<t:snack.controlcb t:id="selectAll" value="selectAll"/>全选/取消		    	
+		    	</p:flagHeader>
+		    	<p:flagCell>
+		    		<t:checkbox t:id="flag" t:mixins="snack/controlledCheckbox" controller="selectAll" value="selected"/>
+		    	</p:flagCell>
+	        </t:grid>
+	        <t:snack.controlcb t:id="selectAllo" value="selectAll"/>全选/取消
+	        <t:loop t:id="looporderItems" source="testos" value="obj">
+		    	<td>
+		    		<t:checkbox t:id="flago" t:mixins="snack/controlledCheckbox" controller="selectAllo" value="selected"/>
+		    	</td>
+	        </t:loop>	        
+	        <p>
+	            <input type="submit" value="添加" class="btn_b"/>
+	        </p>	        
+	        </t:form>
+		</p>
+				<t:form>
+		<t:textarea t:id="editor" t:mixins="editor/kindeditor" cols="100" rows="8" style="width:700px;height:300px;"/>
+		</t:form>
+</html>

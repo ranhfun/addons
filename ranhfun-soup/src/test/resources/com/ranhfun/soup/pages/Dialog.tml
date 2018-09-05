@@ -1,0 +1,34 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    <t:soup.dialog t:clientId="myDialog" t:params="options">
+    	Dialog test!
+		<t:zone t:id="myZone">${count}
+		
+		<t:form>
+			Try "abcd" :<input t:type="TextField" type="text" t:id="goalName" t:value="goalName" t:mixins="Autocomplete"/>
+		</t:form>
+		</t:zone>
+		
+    </t:soup.dialog>
+	
+	<h3>Dialog Link</h3>
+	<t:soup.dialoglink t:dialog="myDialog" class="css">Open</t:soup.dialoglink>
+	
+	<h3>Dialog Ajax Link</h3>
+	<t:soup.dialogajaxlink t:dialog="myDialog" t:zone="myZone" class="css2" context="count">Open</t:soup.dialogajaxlink>
+				<script type="text/javascript">
+				
+				function check() {
+					$("#goalName").tapestryFieldEventManager();
+				}
+				
+			</script>
+	<h3>Dialog Block Link</h3>
+	<t:soup.dialogBlocklink t:id="blockLink" t:dialog="myDialog" t:block="myblock" class="css2" context="count">Open</t:soup.dialogBlocklink>
+	<t:block id="myblock">
+	tester${currentTime}
+	<t:zone t:id="myblockZone" id="myblockZone">
+	<div>Block Tester!${currentTime}<t:actionlink t:id="refreshZone" t:zone="myblockZone">refreshZone</t:actionlink></div>
+	</t:zone>		
+	</t:block>
+</html>

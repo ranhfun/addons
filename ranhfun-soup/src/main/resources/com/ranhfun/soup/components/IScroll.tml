@@ -1,0 +1,13 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<ul t:id="ul">
+       	<t:if test="hasRows">
+       	<tr t:id="rows"/>
+       	<p:else>
+       	<t:delegate to="empty"/>
+       	</p:else>
+       	</t:if>
+	</ul>
+    <t:block id="empty">
+    	<li class="t-soup-empty">${message:no-grid-data-to-display}</li>
+    </t:block>	
+</t:container>

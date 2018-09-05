@@ -1,0 +1,8 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+        <title>Start Page</title>
+    </head>
+    <body>
+    <t:upload.image/>
+    </body>
+</html>

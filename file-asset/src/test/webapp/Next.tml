@@ -1,0 +1,12 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+        <title>next Page</title>
+    </head>
+    <body>
+        <p>
+            next
+        </p>
+        
+
+    </body>
+</html>

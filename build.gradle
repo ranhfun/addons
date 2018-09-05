@@ -1,0 +1,1147 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+allprojects {
+	group = 'com.ranhfun'
+	version = '0.4.0'
+}
+
+ext {
+	archivesBaseName = 'ranhfun'
+	tapestryVersion = '5.3.8'
+	hibernateVersion = '4.1.3.Final'
+	vaadinVersion = '7.1.1'
+}
+
+ext.libraries = [
+	      // tapestry
+	      tapestry_core:            'org.apache.tapestry:tapestry-core:' + tapestryVersion,
+	      tapestry_upload:          'org.apache.tapestry:tapestry-upload:' + tapestryVersion,
+	      tapestry_spring:          'org.apache.tapestry:tapestry-spring:' + tapestryVersion,
+	      tapestry_jpa:          		'org.apache.tapestry:tapestry-jpa:' + tapestryVersion,
+	      tapestry_test:          	'org.apache.tapestry:tapestry-test:' + tapestryVersion,
+				
+				// hibernate
+				hibernate_core:						'org.hibernate:hibernate-core:' + hibernateVersion,
+				hibernate_entitymanage:		'org.hibernate:hibernate-entitymanager:' + hibernateVersion,
+				hibernate_c3p0:						'org.hibernate:hibernate-c3p0:' + hibernateVersion,
+				hibernate_ehcache:				'org.hibernate:hibernate-ehcache:' + hibernateVersion,
+				
+				// proxool
+				proxool:									'com.cloudhopper.proxoo:proxool:0.9.1',
+				proxool_cglib:						'com.cloudhopper.proxoo:proxool-cglib:0.9.1',
+				
+				// tynamo
+				tynamo_security:					'org.tynamo:tapestry-security:0.5.1',
+				tynamo_resteasy:					'org.tynamo:tapestry-resteasy:0.3.0',
+				
+				// shiro
+				shiro_cas:								'org.apache.shiro:shiro-cas:1.2.0',
+				shiro_web:								'org.apache.shiro:shiro-web:1.2.0',
+				shiro_core:								'org.apache.shiro:shiro-core:1.2.0',
+				
+				// commons
+				commons_lang:						  'commons-lang:commons-lang:2.6',
+				commons_lang3:						'org.apache.commons:commons-lang3:3.0.1',
+				commons_vfs2:							'org.apache.commons:commons-vfs2:2.0',
+				commons_net:							'commons-net:commons-net:1.4.1',
+				commons_dbcp:							'commons-dbcp:commons-dbcp:1.3',
+				commons_fileupload:				'commons-fileupload:commons-fileupload:1.2',
+				commons_io:								'commons-io:commons-io:1.3',
+        
+        // ftpserver
+				ftpserver:								'org.apache.ftpserver:ftpserver-core:1.0.6',
+				
+				// ftpclient
+				ftp4j:										'it.sauronsoftware:ftp4j:1.6',
+        
+        // resteasy
+	      resteasy_jaxrs:						'org.jboss.resteasy:resteasy-jaxrs:2.3.5.Final',
+	      resteasy_jaxb:						'org.jboss.resteasy:resteasy-jaxb-provider:2.3.5.Final',
+	      resteasy_jettison:				'org.jboss.resteasy:resteasy-jettison-provider:2.3.5.Final',
+	      resteasy_jackson:					'org.jboss.resteasy:resteasy-jackson-provider:2.3.5.Final',
+	      resteasy_oauth:						'org.jboss.resteasy:resteasy-oauth:2.3.5.Final',
+	      
+	      // oauth
+	      oauth_provider:						'net.oauth.core:oauth-provider:20100527',
+	      
+			  // oauth2
+			  oauth2: [
+			  	"org.apache.oltu.oauth2:org.apache.oltu.oauth2.authzserver:1.0.0",
+			  	"org.apache.oltu.oauth2:org.apache.oltu.oauth2.resourceserver:1.0.0"
+			  ],
+        
+        // shiro
+	      shiro_core:								'org.apache.shiro:shiro-core:1.2.0',
+	      shiro_web:								'org.apache.shiro:shiro-web:1.2.0',
+        
+        // cas
+        cas_client:								'org.jasig.cas.client:cas-client-core:3.2.1',
+        
+        // dynamicreports
+        dynamicreports:						'net.sourceforge.dynamicreports:dynamicreports-core:2.5.1',
+        
+        // chelian
+        chelian_ftp:							'me.chelian:chelian-ftp:1.0.0.0',
+        
+        // servlet
+        servlet:				'javax.servlet:servlet-api:2.5',
+        // tomcat
+        tomcat_catalina:	'org.apache.tomcat:tomcat-catalina:7.0.55',
+        tomcat_coyote:		'org.apache.tomcat:tomcat-coyote:7.0.55',
+        
+        
+        // icepush
+        icepush:				'org.icepush:icepush:3.3.0',
+        
+        // jxls
+	      jxls:											'org.jxls:jxls-reader:2.0.0',
+	      jxls_core:								'org.jxls:jxls:2.2.0',
+	      jxls_poi:									'org.jxls:jxls-poi:1.0.4',
+	      jxls_jexcel:							'org.jxls:jxls-jexcel:1.0.2',
+	      
+	      jxls_old: [
+	      		'net.sf.jxls:jxls-core:1.0.6',
+	      		'net.sf.jxls:jxls-reader:1.0.6'
+	      ],
+        
+        // activiti
+        activiti_engine:	'org.activiti:activiti-engine:5.9',
+        // testng
+        testng:		'org.testng:testng:6.1.1',
+        // easymock
+        easymock:		'org.easymock:easymock:2.4',
+        // persistence
+        eclipse_persistence:	'org.eclipse.persistence:javax.persistence:2.0.0',
+        // h2
+        h2:	'com.h2database:h2:1.2.144',
+				// mysql
+				mysql:										'mysql:mysql-connector-java:5.1.12',
+        
+        // activemq
+        activemq_core:			'org.apache.activemq:activemq-core:5.6.0',
+        activemq_activeio:	'org.apache.activemq:activeio-core:3.1.4',
+        
+        // logging
+        logging:        'org.jboss.logging:jboss-logging:3.1.0.GA',
+        logging_processor:  'org.jboss.logging:jboss-logging-processor:1.0.0.Final',
+        
+        // guava
+        guava:  'com.google.guava:guava:14.0.1',
+        
+        // quartz
+        quartz:	'org.quartz-scheduler:quartz:2.2.0', 
+        
+        // vaadin
+        vaadin: [
+        			'com.vaadin:vaadin-shared:' + vaadinVersion,
+        			'com.vaadin:vaadin-server:' + vaadinVersion,
+        			'com.vaadin:vaadin-client:' + vaadinVersion,
+        			'com.vaadin:vaadin-client-compiler:' + vaadinVersion,
+        			'com.vaadin:vaadin-client-compiled:' + vaadinVersion,
+        			'com.vaadin:vaadin-theme-compiler:' + vaadinVersion,
+        			'com.vaadin:vaadin-themes:' + vaadinVersion,
+        			'com.google.gwt:gwt-user:2.5.1',
+        			'com.google.gwt:gwt-dev:2.5.1',
+        			'javax.validation:validation-api:1.0.0.GA:sources',
+        ],
+        
+        // swagger
+        swagger: 'com.wordnik:swagger-jaxrs_2.10:1.3.12',
+        
+        // jpush
+        jpush_client: 'cn.jpush.api:jpush-client:3.1.3'
+        
+        
+]
+
+subprojects {
+	apply plugin: 'eclipse'
+	apply plugin: 'java'
+	apply plugin: 'maven'
+	
+  configurations {
+  		hibernateJpaModelGenTool {
+          description = "Dependencies for running the Hibernate JPA Metamodel Generator AnnotationProcessor tool"
+      } 
+      provided 
+      jbossLoggingTool {
+          description = "Dependencies for running the JBoss logging AnnotationProcessor tool"
+      }
+  }
+
+  sourceSets {
+    main {
+      compileClasspath += configurations.provided
+    }
+    test {
+      compileClasspath += configurations.provided
+      runtimeClasspath += configurations.provided
+    }
+  }
+  
+ eclipse {
+  	classpath {
+  		plusConfigurations += configurations.provided
+  	} 	
+  }
+ ext {
+		//deployUsernameProperty = "ranhfunDeployUserName"
+	  //deployPasswordProperty = "ranhfunDeployPassword"
+		//canDeploy = [deployUsernameProperty, deployPasswordProperty].every { project.hasProperty(it) }
+		levelsProperty = "release.levels"
+		levelsExists = project.hasProperty(levelsProperty)
+		sourcesExists = levelsExists && project.getProperty(levelsProperty)=="level2"
+	}
+	repositories {
+    //mavenRepo name: "Gradle", urls: "http://repo.gradle.org/gradle/plugins-snapshots/"
+    //flatDir name:"localRepo",dirs: "$rootDir/lib"
+  	//mavenRepo name: "Gradle", artifactUrls:  "https://repository.atlassian.com/maven2/"
+    //maven {
+    //    credentials {
+    //        username project.getProperty(deployUsernameProperty)
+    //        password project.getProperty(deployPasswordProperty)
+    //    }
+    //   	url "http://27.155.177.9:9999/artifactory/repo/"
+       	//url "http://192.168.1.143:8080/artifactory/repo/"
+    //}
+    //mavenRepo name: "center", urls: "http://maven.aliyun.com/nexus/content/groups/public/"
+    mavenCentral()
+    
+    //mavenRepo name: "center", urls: "https://maven.aliyun.com/repository/central"
+    //mavenRepo name: "jcenter", urls: "https://maven.aliyun.com/repository/jcenter"
+    mavenRepo name: "Activiti", urls: "http://maven.alfresco.com/nexus/content/repositories/activiti/"
+	}
+	
+	task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+  }
+  
+  if(sourcesExists) {
+		artifacts {
+		    archives sourcesJar
+		}
+  }
+	
+	uploadArchives {
+		repositories {
+		  repositories.mavenDeployer {
+		    ext.configureAuth = {
+	                 // authentication(userName: project.getProperty(deployUsernameProperty), password: project.getProperty(deployPasswordProperty))
+		    }
+		   if(!levelsExists) {
+		   		snapshotRepository(url: "http://27.155.177.9:9999/artifactory/libs-snapshot-local", configureAuth)
+		   		repository(url: "http://27.155.177.9:9999/artifactory/libs-release-local", configureAuth)
+		   } else {
+		   		repository(url: 'http://27.155.177.9:9999/artifactory/' + project.getProperty(levelsProperty) + '-release-local', configureAuth)
+		   }		    
+		  }  		  
+		}
+	}
+	
+	cleanEclipse.doLast {
+		delete 'bin','.settings'
+	}
+	
+		tasks.withType(JavaCompile) {
+		    options.encoding = 'UTF-8'
+		}		
+}
+
+task clean(type: Delete) {
+ 		delete buildDir
+}
+
+project(':ranhfun-vfs') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.commons_vfs2 )
+		compile( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.vfs.services.VFSModule'
+    }
+	}
+}
+
+project(':ranhfun-jquery') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.jquery.services.JQueryModule'
+    }
+	}
+}
+
+project(':ranhfun-resource') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		testCompile( project(':ranhfun-vfs') )
+		testCompile( project(':ranhfun-asset-ext') )
+		compile( libraries.commons_lang3 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.resource.services.ResourceModule'
+    }
+	}	
+}
+
+project(':ranhfun-cas') {
+
+	dependencies {
+		compile( libraries.tynamo_security )
+		compile( libraries.shiro_core )
+		compile( libraries.shiro_web )
+		compile( libraries.servlet )
+		compile( libraries.cas_client )
+		compile( libraries.shiro_cas )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.cas.services.CASModule'
+    }
+	}
+}
+
+project(':ranhfun-upload') {
+
+	dependencies {
+		compile( project(':ranhfun-jquery') )
+		compile( project(':ranhfun-vfs') )
+		compile( libraries.tapestry_core )
+		compile( libraries.tapestry_upload )
+		compile( libraries.commons_lang3 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+}
+
+project(':ranhfun-photo') {
+
+	//eclipseClasspath.downloadSources = false
+	
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.chelian_ftp )
+		compile( libraries.commons_net )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.photo.services.PhotoModule'
+    }
+	}
+
+}
+
+project(':ranhfun-soup') {
+	
+	dependencies {
+		compile( project(':ranhfun-jquery') )
+		compile( libraries.tapestry_core )
+		compile( libraries.tapestry_upload )
+		compile( libraries.commons_lang3 )
+		testCompile( project(':ranhfun-resource') )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.soup.services.SoupModule'
+    }
+	}
+
+}
+
+project(':ranhfun-editor') {
+	
+	dependencies {
+		compile( project(':ranhfun-jquery') )
+		compile( project(':ranhfun-vfs') )
+		compile( libraries.tapestry_core )
+		compile( libraries.tapestry_upload )
+		compile( libraries.commons_lang3 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.editor.services.EditorModule'
+    }
+	}
+
+}
+
+project(':ranhfun-ftp') {
+	
+	dependencies {
+	compile( project(':ranhfun-vfs') )
+	compile( libraries.ftpserver )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.ftp.services.FTPModule'
+    }
+	}
+
+}
+
+project(':ranhfun-excel') {
+	
+	dependencies {
+	compile( project(':ranhfun-vfs') )
+	compile( libraries.tapestry_core )
+	compile( libraries.jxls_core )
+	compile( libraries.jxls )
+	//compile( libraries.jxls_jexcel )
+	compile( libraries.jxls_poi )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.excel.services.ExcelModule'
+    }
+	}
+
+}
+
+project(':ranhfun-pdf') {
+	
+	dependencies {
+	compile( libraries.dynamicreports )
+	compile( libraries.tapestry_core )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.pdf.services.PdfModule'
+    }
+	}
+
+}
+
+project(':ranhfun-ueditor') {
+	
+	dependencies {
+		compile( project(':ranhfun-jquery') )
+		compile( project(':ranhfun-ueditor-core') )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-ueditor-core') {
+	
+	dependencies {
+		compile( project(':ranhfun-vfs') )
+		compile( libraries.tapestry_core )
+		compile( libraries.tapestry_upload )
+		compile( libraries.commons_lang3 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.ueditor.services.UEditorModule'
+    }
+	}
+
+}
+
+project(':ranhfun-ueditor-prototype') {
+	
+	dependencies {
+		compile( project(':ranhfun-ueditor-core') )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-icepush') {
+	
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.icepush )
+		compile( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.soup.icepush.services.IcepushModule'
+    }
+	}
+
+}
+
+
+project(':ranhfun-snack') {
+	
+	dependencies {
+		//compile( project(':ranhfun-jquery') )
+		compile( libraries.tapestry_core )
+		compile( libraries.tapestry_upload )
+		compile( libraries.commons_lang3 )
+		testCompile( project(':ranhfun-resource') )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.soup.snack.services.SnackModule'
+    }
+	}
+
+}
+
+project(':ranhfun-oauth') {
+
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.tynamo_resteasy )
+		compile( libraries.oauth_provider )
+		compile( libraries.commons_lang3 )
+		provided( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+		jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.oauth.services.OAuthModule'
+    }
+	}
+}
+
+project(':ranhfun-activiti') {
+
+	dependencies {
+		compile( libraries.tapestry_jpa )
+		compile( libraries.activiti_engine )
+		testCompile( libraries.testng )
+		testCompile( libraries.h2 )
+		compile( libraries.eclipse_persistence )
+		provided( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'org.tynamo.activiti.services.ActivitiModule'
+    }
+	}
+	
+	test {
+	  useTestNG()
+	}	
+}
+
+project(':ranhfun-activemq') {
+
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.activemq_core )
+		testCompile( libraries.commons_dbcp )
+		testCompile( libraries.mysql )
+		testCompile( libraries.activemq_activeio )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.activemq.services.ActiveMQModule'
+    }
+	}
+}
+
+project(':ranhfun-camel') {
+
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.activemq_core )
+		testCompile( libraries.commons_dbcp )
+		testCompile( libraries.mysql )
+		testCompile( libraries.activemq_activeio )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.camel.services.CamelModule'
+    }
+	}
+}
+
+project(':ranhfun-jpa-interceptor') {
+
+	dependencies {
+		compile( libraries.tapestry_jpa )
+		compile( libraries.hibernate_entitymanage )
+		testCompile( libraries.mysql )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.jpa.services.InterceptorModule'
+    }
+	}
+}
+
+project(':ranhfun-jpa-listener') {
+
+	dependencies {
+		compile( libraries.tapestry_jpa )
+		compile( libraries.hibernate_entitymanage )
+		testCompile( libraries.mysql )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.jpa.services.ListenerModule'
+    }
+	}
+}
+
+project(':ranhfun-jpa-filter') {
+
+	dependencies {
+		compile( libraries.tapestry_jpa )
+		compile( libraries.hibernate_entitymanage )
+		testCompile( libraries.mysql )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.jpa.services.FilterModule'
+    }
+	}
+}
+
+project(':ranhfun-proxool-core') {
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-proxool') {
+
+	dependencies {
+		compile( project(':ranhfun-proxool-core') )
+		compile( libraries.hibernate_core )
+		compile( libraries.proxool )
+		compile( libraries.proxool_cglib )
+		jbossLoggingTool( libraries.logging_processor )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	ext.aptDumpDir = file( "${buildDir}/tmp/apt" )
+	
+  sourceSets.all {
+      ext.originalJavaSrcDirs = java.srcDirs
+      ext.generatedLoggingSrcDir = file( "${buildDir}/generated-src/logging/${name}" )
+      java.srcDir ext.generatedLoggingSrcDir
+  }
+
+  task generateMainLoggingClasses(type: Compile) {
+  		dependencyCacheDir = file(dependencyCacheDirName)
+     	classpath = compileJava.classpath + configurations.jbossLoggingTool
+      source = sourceSets.main.originalJavaSrcDirs
+      destinationDir = aptDumpDir
+      options.define(
+              compilerArgs: [
+                      "-nowarn",
+                      "-proc:only",
+                      "-encoding", "UTF-8",
+                      "-processor", "org.jboss.logging.processor.apt.LoggingToolsProcessor",
+                      "-s", "$sourceSets.main.generatedLoggingSrcDir.absolutePath",
+                      "-AloggingVersion=3.0",
+                      "-source", "1.6",
+                      "-target", "1.6",
+                      "-AtranslationFilesPath=${project.rootDir}/src/main/resources"
+
+              ]
+      );
+      outputs.dir sourceSets.main.generatedLoggingSrcDir;
+      doFirst {
+          sourceSets.main.generatedLoggingSrcDir.mkdirs()
+          file(dependencyCacheDirName).mkdirs()
+      }
+  }
+
+  // for the time being eat the annoying output from running the annotation processors
+  generateMainLoggingClasses.logging.captureStandardError(LogLevel.INFO)
+
+	
+  compileJava.dependsOn generateMainLoggingClasses	
+	
+	jar {
+    manifest {
+			attributes 'Manifest-Version': '1.0'
+			attributes 'provider': 'gradle'
+			attributes 'Implementation-Url': 'http://hibernate.org'
+			attributes 'Implementation-Version': '4.1.3.Final'
+			attributes 'Implementation-Vendor': 'Hibernate.org'
+			attributes 'Implementation-Vendor-Id': 'org.hibernate'
+    }
+	}
+
+}
+
+project(':ranhfun-proxool-ext') {
+
+	dependencies {
+		compile( project(':ranhfun-proxool-core') )
+		compile( libraries.proxool )
+		compile( libraries.proxool_cglib )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-cross-subdomain') {
+
+	dependencies {
+		provided( libraries.servlet )
+		provided( libraries.tomcat_catalina )
+		provided( libraries.tomcat_coyote )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+}
+
+project(':ranhfun-mysql') {
+
+	dependencies {
+		provided( libraries.hibernate_entitymanage )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-ftp-client') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		compile( libraries.ftp4j )
+		testCompile( libraries.tapestry_upload )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	compileTestJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.ftp.services.FTPClientModule'
+    }
+	}
+}
+
+project(':ranhfun-resteasy-filter') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.resteasy.services.ResteasyFilterModule'
+    }
+	}
+}
+
+project(':ranhfun-security-ext') {
+
+	dependencies {
+		compile( libraries.tynamo_security )
+		compile( libraries.shiro_core )
+		compile( libraries.shiro_web )
+		compile( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.security.services.SecurityExtModule'
+    }
+	}
+}
+
+project(':ranhfun-eventbus') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		compile( libraries.guava )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.eventbus.services.EventBusModule'
+    }
+	}
+}
+
+project(':ranhfun-quartz') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		compile( libraries.quartz )	
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.quartz.QuartzModule'
+    }
+	}
+}
+
+project(':ranhfun-quartz-jdbc') {
+	dependencies {
+		compile( project(':ranhfun-quartz') )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.quartz.QuartzJdbcModule'
+    }
+	}
+}
+
+project(':ranhfun-ip-engine') {
+	dependencies {
+		compile( libraries.tapestry_core )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.ipengine.services.IPEngineModule'
+    }
+	}
+}
+
+
+project(':ranhfun-vaadin') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.vaadin )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.vaadin.services.VaadinModule'
+    }
+	}
+}
+
+project(':ranhfun-price') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		testCompile( "org.apache.derby:derby:10.10.1.1" )
+		testCompile( libraries.testng )
+		testCompile( libraries.commons_dbcp )
+		testCompile( libraries.mysql )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.price.services.PriceModule'
+    }
+	}
+	
+	test {
+	  useTestNG()
+	}	
+}
+
+project(':ranhfun-zip') {
+	
+	dependencies {
+		compile( libraries.tapestry_core )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.zip.services.ZipModule'
+    }
+	}
+
+}
+
+project(':ranhfun-oauth2') {
+
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.oauth2 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+		jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.oauth2.services.OAuthModule'
+    }
+	}
+}
+
+project(':ranhfun-oauth2-filter') {
+
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.tynamo_security )
+		compile( libraries.shiro_web )
+		compile( libraries.shiro_core )
+		compile( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+		jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.oauth2.services.OAuthFilterModule'
+    }
+	}
+}
+
+
+project(':ranhfun-asset-ext') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.asset.services.AssetExtModule'
+    }
+	}
+}
+
+project(':ranhfun-resteasy-jaxb-ext') {
+	dependencies {
+		compile( libraries.resteasy_jaxrs )
+		compile( libraries.resteasy_jaxb )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-resteasy-jackson-ext') {
+	dependencies {
+		compile( project(':ranhfun-resteasy-jaxb-ext') )
+		compile( libraries.resteasy_jackson )
+		compile( libraries.resteasy_jettison )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-resteasy-interceptor') {
+	dependencies {
+		compile( project(':ranhfun-resteasy-jackson-ext') )
+		testCompile( libraries.tynamo_resteasy )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-map') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		compile( libraries.commons_lang3 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.map.services.MapModule'
+    }
+	}
+}
+
+project(':ranhfun-bpush') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		compile( libraries.commons_lang3 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.bpush.services.BPushModule'
+    }
+	}
+}
+
+project(':ranhfun-swagger') {
+
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.tynamo_resteasy )
+		compile( libraries.swagger )
+		compile( libraries.commons_lang3 )
+		compile( libraries.resteasy_jaxrs )
+		compile( libraries.resteasy_jaxb )		
+		provided( libraries.servlet )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.swagger.services.SwaggerModule'
+    }
+	}
+}
+
+project(':ranhfun-jxls') {
+
+	dependencies {
+		compile( libraries.jxls_core )
+		compile( libraries.jxls )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+
+}
+
+project(':ranhfun-jpush') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		compile( libraries.commons_lang3 )
+		compile( libraries.jpush_client )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.jpush.services.JPushModule'
+    }
+	}
+}
+
+project(':ranhfun-util') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		compile( libraries.commons_lang3 )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.util.services.UtilModule'
+    }
+	}
+}
+
+project(':file-asset') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.servlet )
+		testCompile( libraries.testng )
+		testCompile( libraries.easymock )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.soup.asset.services.FileAssetModule'
+    }
+	}
+}
+
+project(':kind-editor') {
+	dependencies {
+		compile( libraries.tapestry_core )
+		compile( libraries.tapestry_upload )
+		compile( libraries.servlet )
+		testCompile( libraries.testng )
+		testCompile( libraries.easymock )
+		compile( project(':file-asset') )
+		compile( libraries.commons_fileupload )
+		compile( libraries.commons_io )
+	}
+	
+	compileJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+	
+	jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.ranhfun.soup.editor.services.EditorModule'
+    }
+	}
+}

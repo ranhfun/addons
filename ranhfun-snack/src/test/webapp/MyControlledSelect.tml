@@ -1,0 +1,15 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+        <p>
+            welcome!
+        </p>
+			<t:form>
+			<t:select t:id="controller" value="number" model="literal:1,2,3" /><br/>
+			<t:select t:id="controlled" value="number2" model="literal:1,2,3" t:mixins="snack/controlledSelect" controller="controller"/><br/>
+			<t:select blankLabel="input" t:id="controller2" value="number" model="literal:1,2,3" /><br/>
+			<t:select blankLabel="input" t:id="controlled2" value="number2" model="literal:1,2,3" t:mixins="snack/controlledSelect" controller="controller2"/><br/>
+			<t:submit/>
+			</t:form>
+</html>

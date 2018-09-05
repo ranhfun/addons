@@ -1,0 +1,8 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+        <p>
+            <span id="test">请领取编号！</span>
+            <a t:type="any" t:id="controllerLink" t:mixins="snack/controllLink" href="javascript:void(0);">领取</a>
+        </p>
+</html>

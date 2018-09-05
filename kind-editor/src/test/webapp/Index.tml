@@ -1,0 +1,33 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+        <title>Start Page</title>
+		<!-- <script>
+			KE.show({
+				id : 'editor',
+				afterCreate : function(id) {
+					KE.event.ctrl(document, 13, function() {
+						KE.util.setData(id);
+						document.forms['example'].submit();
+					});
+					KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+						KE.util.setData(id);
+						document.forms['example'].submit();
+					});
+				}
+			});
+		</script>     -->    
+    </head>
+    <body>
+        <p>
+            test
+        </p>
+        
+		<t:form t:id="example">
+		
+		<t:textarea t:id="editor" t:mixins="editor/kindeditor" cols="100" rows="8" style="width:700px;height:300px;"/>
+		<!-- 
+		 <t:textarea t:id="editor" cols="100" rows="8" style="width:700px;height:300px;"/> -->
+		</t:form>
+		
+    </body>
+</html>

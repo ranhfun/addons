@@ -1,0 +1,11 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+<body>
+<t:form>
+<t:select t:id="controlled" value="number2" model="literal:1,2,3" /><br/>
+<t:soup.multiselect t:id="select" selected="values" encoder="encoder" model="model" t:mixins="soup/controlledSelect" controller="controlled" multiController="controlled"/>
+<t:submit/>
+</t:form>
+</body>
+</html>

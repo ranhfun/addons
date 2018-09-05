@@ -1,0 +1,12 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <head>
+        <title>Start Page</title>
+    </head>
+    <body>
+       <!--  <p>
+            ${filePath}welcome!<img src="${image}"/>
+        </p> -->
+        <t:zone t:id="zone">${message}</t:zone>
+		<t:actionlink t:id="test" zone="zone">teste</t:actionlink>
+    </body>
+</html>

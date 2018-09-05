@@ -1,0 +1,75 @@
+include "ranhfun-vfs","ranhfun-jquery","ranhfun-resource"
+include "ranhfun-cas"
+include "ranhfun-upload"
+include "ranhfun-photo"
+include "ranhfun-soup"
+include "ranhfun-editor"
+include "ranhfun-ftp"
+include "ranhfun-excel"
+include "ranhfun-pdf"
+include "ranhfun-ueditor"
+include "ranhfun-icepush"
+include "ranhfun-snack"
+include "ranhfun-oauth"
+include "ranhfun-activiti"
+include "ranhfun-activemq"
+include "ranhfun-camel"
+include "ranhfun-ueditor-core"
+include "ranhfun-ueditor-prototype"
+
+include "ranhfun-jpa-interceptor"
+include "ranhfun-jpa-listener"
+include "ranhfun-jpa-filter"
+
+include "ranhfun-proxool-core"
+
+include "ranhfun-proxool"
+
+include "ranhfun-proxool-ext"
+
+include "ranhfun-cross-subdomain"
+
+include "ranhfun-mysql"
+
+include "ranhfun-ftp-client"
+
+include "ranhfun-resteasy-filter"
+
+include "ranhfun-security-ext"
+
+include "ranhfun-eventbus"
+
+include "ranhfun-quartz","ranhfun-quartz-jdbc"
+
+include "ranhfun-ip-engine"
+
+include "ranhfun-vaadin"
+
+include "ranhfun-price"
+
+include "ranhfun-zip"
+
+include "ranhfun-oauth2"
+
+include "ranhfun-oauth2-filter"
+
+include "ranhfun-asset-ext"
+
+include "ranhfun-resteasy-jaxb-ext"
+include "ranhfun-resteasy-jackson-ext"
+include "ranhfun-resteasy-interceptor"
+
+include "ranhfun-map"
+
+include "ranhfun-bpush"
+
+include "ranhfun-swagger"
+
+include "ranhfun-jxls"
+
+include "ranhfun-jpush" 
+
+include "ranhfun-util"
+
+include "file-asset"
+include "kind-editor"

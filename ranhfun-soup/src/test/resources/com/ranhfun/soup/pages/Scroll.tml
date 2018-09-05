@@ -1,0 +1,85 @@
+<!doctype html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<title>人保业务手机端</title>
+<link rel="stylesheet" href="${asset:icon.css}"/>
+<link rel="stylesheet" href="${asset:mobile.css}"/>
+<!--<script src="${asset:jquery-1.10.2.js}"></script>
+<script src="${asset:jquery-migrate-1.2.1.js}"></script> 
+<script src="${asset:iscroll.js}"></script>-->
+<script src="${asset:mobiform.js}"></script>
+<script src="${asset:mobile.js}"></script>
+</head>
+<body>      
+ 	<div id="header">
+		<div class="ui-top">
+			<ul class="menu">
+				<li><a class="icon map-marker mr" href="javascript:;">离我最近</a><t:actionlink t:id="clear">清空</t:actionlink></li>
+			</ul>
+<!-- 			<a class="icon angle-left" href="#" onclick="$('#wrapper').trigger('onScrollRefreshFn');"></a> -->
+			<h1>服务网点</h1>
+		</div>
+		<!-- end ui-top -->
+	</div>
+	<!-- end #header -->
+	<div id="wrapper">
+	<div class="scroller">
+	<t:iscroll t:id="wrapper" source="source" row="var:item" rowsPerPage="10" wrapperClass="scroller" constructFlag="true" unwrapperFlag="true" customFn="custom();" class="ui-list-indent">
+		<p:rowBlock>
+					<li class="client-info">
+                        <div class="jsCheck-each"><input type="checkbox" name="checkone" class="che" /></div>
+                        <dl>
+                            <dd class="name">张三(已脱保)${var:item}<i class="icon star"></i><i class="icon star"></i><i class="icon star"></i></dd>
+							<dd><i class="phone icon"></i>13254147588</dd>
+                            <dd>车牌号：闽A1234</dd>
+                            <dd class="jstoggle">品牌车型：车型</dd>
+                            <dd class="jstoggle number jsnum"><a class="arrow" href="javascript:;">保单号：164646</a></dd>
+                            <dd class="jstoggle number jsinfonum"><a class="arrow" href="javascript:;">理赔信息：案件125412541</a></dd>
+                            <dd class="jstoggle">增值服务：<a href="client_service.html">参与服务</a><a href="client_service.html">推送服务</a></dd>
+                            <dd class="jstoggle">客户评价：<a href="#">标签1</a><a href="#">标签2</a></dd>
+                            <dd class="txta icon pencil jstoggle jscomment">满意满意满意</dd>
+                            <dd class="tc"><a class="btn" href="client_visit_lpkh.html">拜访</a></dd>
+                            <dd><a class="icon angle-up btn-toggle" href="javascript:;"></a></dd>
+                        </dl>
+                    </li>
+		</p:rowBlock>
+	</t:iscroll> 
+	</div>
+	</div>
+	 <!--end #wrapper -->
+	<script type="text/javascript">
+		var hd_height = $('#header').height();
+		var ft_height = $('#footer').height();
+		$('#wrapper').css('height', $(window).height()-hd_height-ft_height );
+		function testClick() {
+			$('.duty-item').unbind('click');
+			$('.duty-item').bind('click', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				alert('tt');
+	        });
+		}
+		function custom() {
+			alert(iscrollPosition.y);
+		}
+       /* $(function () {
+	        $('.client-info .btn-toggle').live('click', function () {
+	            if ($(this).hasClass('angle-up')) {
+	                $(this).parent('dd').siblings('.jstoggle').show();
+	                $(this).removeClass('angle-up').addClass('angle-down');
+	            } else {
+	                $(this).parent('dd').siblings('.jstoggle').hide();
+	                $(this).removeClass('angle-down').addClass('angle-up');
+	            }
+	           myScroll.refresh();
+	        });
+        }); */
+	</script> 
+</body>	
+</html>

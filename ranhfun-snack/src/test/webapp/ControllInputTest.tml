@@ -1,0 +1,12 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+<t:form>
+			<t:textfield t:id="controllerInput" t:mixins="snack/controllInput" customer="controllerInput2" value="number2"/><br/>
+			<t:textfield t:id="controllerInput2" t:mixins="snack/controllInput" editable="true" value="number3"/><br/>
+			
+			<t:select t:id="controlled2" value="number2" model="literal:1,2,3"  blankLabel="input"/><br/>
+			<div id="test">tesetvalue000</div>
+			<div id="test1">tesetvalue1111</div>
+			<input type="text" id="test2" value="test2"/>
+</t:form>
+</html>

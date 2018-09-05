@@ -1,0 +1,14 @@
+<form t:id="form"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <t:errors/>
+
+    <div class="t-beanexport">
+
+        <t:snack.beanexport t:id="editor" object="object" model="model" overrides="this" propertyCheckMap="propertyCheckMap" propertyAliasMap="propertyAliasMap"/>
+
+        <div class="t-beanexport-row">
+            <input type="submit" class="t-beanexport-submit" value="${submitLabel}"/>
+        </div>
+    </div>
+
+</form>

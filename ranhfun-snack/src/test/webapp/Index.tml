@@ -1,0 +1,51 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+        <p>
+            welcome!
+        </p>
+
+        <p>The current time is: ${currentTime}.</p>
+			<t:form>
+			<!-- <t:checkbox t:id="cb1" t:mixins="snack/controlledCheckbox,snack/controlledCheckboxAll,snack/controlledCheckboxNot,snack/controlledCheckboxOpp" value="false" controller="cb3" controllerall="cbk1" controllernot="cbk2" controlleropp="cbk3"/>1<br/>
+			<t:checkbox t:id="cb2" t:mixins="snack/controlledCheckbox,snack/controlledCheckboxAll,snack/controlledCheckboxNot,snack/controlledCheckboxOpp" value="false" controller="cb3" controllerall="cbk1" controllernot="cbk2" controlleropp="cbk3"/>2<br/>
+			 <t:snack.controlcb t:id="cb3" value="false"/>全选/取消
+			<t:snack.controlcheckAlllink t:id="cbk1">全选</t:snack.controlcheckAlllink><br/>
+			<t:snack.controlcheckNotlink t:id="cbk2">取消</t:snack.controlcheckNotlink><br/>
+			<t:snack.controlcheckOpplink t:id="cbk3">反选</t:snack.controlcheckOpplink><br/>  -->
+			<t:select blankLabel="请选择" t:id="number" model="literal:1,2,3"/>
+			<t:select t:id="number2" model="literal:1,2,3" t:mixins="snack/controlledselect" context="[3]" controller="number"/>
+			<t:select blankLabel="input" t:id="number3" model="literal:1,2,3" t:mixins="snack/controlledselect" controller="number2"/>
+			<t:snack.datetimefield t:id="dateTimeField1"/>
+			<t:snack.datetimefield t:id="dateTimeField2"/>
+			<t:snack.datetimefield t:id="dateTimeField4"/>
+						<input type="submit" value="submit"/>
+			</t:form>
+			
+			<t:beaneditform object="this" include="actualDate3">
+			<p:actualDate3>
+			<t:label for="dateTimeField3"/>
+			<t:snack.datetimefield t:id="dateTimeField3"/>
+			</p:actualDate3>
+			</t:beaneditform>
+			
+			<dl t:type="snack/tab">
+				<dt>test</dt>
+				<dd>
+					test1
+				</dd>
+				<dt>test2</dt>
+				<dd>
+					test2
+				</dd>
+				<dt>test3</dt>
+				<dd>
+					<ul>
+					</ul>
+				</dd>				
+			</dl>
+		
+		<!-- <t:snack.beanexportform object="object" propertyCheckMap="propertyCheckMap" propertyAliasMap="propertyAliasMap"/> -->
+
+</html>

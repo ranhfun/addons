@@ -1,0 +1,132 @@
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<head>
+<title>TooltipDemo</title>
+
+<style type="text/css">
+#tooltip1 {
+	font-size: 10pt;
+	background: #fffff0;
+	border: 1px solid blue;
+	width: 150px;
+	padding: 3px;
+}
+
+#tooltip2 ul {
+	margin: 2px;
+	padding: 2px;
+	list-style-type: none;
+	background-color: black;
+}
+
+#tooltip2 ul li {
+	margin: 2px;
+	padding: 0;
+	border: 1px solid;
+	background-color: #D1E7FF;
+}
+
+.innershadowbox {
+	border: 1px solid black;
+	background: #CCFCFF;
+	position: relative;
+	right: .5em;
+	bottom: .5em;
+	width: 10em;
+}
+
+.outershadowbox {
+	background-color: #A9FFB9;
+	margin: .5em 0 0 .5em;
+	width: 10em;
+}
+
+#loop {
+	background: yellow;
+	border: 1px solid black;
+	font-size: 20pt;
+	width: 5em;
+}
+</style>
+
+
+</head>
+<body>
+	<h1>Tooltip Demo</h1>
+
+	<table border="1">
+
+		<tr>
+			<td>A simple tooltip over this <t:soup.tooltip
+					tooltipContent="tooltipOverLink" xoffset="10" yoffset="20">
+					<a href="#">link</a>.
+		</t:soup.tooltip></td>
+		</tr>
+       <tr>  
+        <td>  
+            A tooltip over an image :  
+            <t:logoTT t:id="logoTT">                    
+                Image here
+            </t:logoTT>    
+        </td>   
+    </tr>  
+        <tr>  
+        <td>  
+           <!-- Test staticFlag parameter"  -->  
+            An example of a static tooltip :  
+            Please point <t:bikeTT t:id="bikeTT"  
+                      style="background-color:yellow;cursor:hand">the mouse  here</t:bikeTT>  
+            to show a picture of a bike.      
+        </td>   
+        </tr>		
+		<tr>
+			<td>
+				<!-- Test timeout parameter  --> An example with timeout parameter
+				set to 5000 milliseconds : <span t:type="soup/tooltip"
+				tooltipContent="message:timeoutTT"
+				style="background-color: yellow; cursor: hand" xoffset="10"
+				yoffset="10" timeout="5000">Required
+					parameters</span> of Tooltip component.</td>
+		</tr>
+           <tr>  
+        <td>  
+                <!-- Test disable, timeout, staticFalg parameter -->  
+            An example of a static tooltip which could be disabled and be visible for at most 3 seconds :  
+            <t:form t:id="buttonForm">           
+                Click to toggle tooltip on and off :   
+                    <t:buttonTT t:id="buttonTT">                
+                              <INPUT t:type="submit" t:id="selectButton"  type="submit" value="Select"/>  
+                            </t:buttonTT>                    
+            </t:form>  
+          
+        </td>   
+    </tr>    
+		<tr>
+			<td>A tooltip over a TextField component, within a loop
+				component and inside a form. <br /> <t:Form>
+					<span t:type="loop" source="tooltipList" value="message"> <span
+						t:type="soup/tooltip" tooltipContent="prop:tooltip" xoffset="20"
+						yoffset="20"> <input type="text" t:type="textField"
+							value="inputMessage" /><br /> </span> </span>
+				</t:Form></td>
+		</tr>
+		<tr>
+			<td>A tooltip within a Loop component, but outside a form. <br />
+				<span t:type="loop" source="tooltipList" value="message"> <span
+					t:type="soup/tooltip" tooltipContent="prop:tooltip" xoffset="20"
+					yoffset="20"> <span id="loop">${message}</span> </span> <br /> </span></td>
+		</tr>
+	</table>
+	Please scroll to the right (unless you have a big big monitor).
+	<!-- force a scroll down. IE does not like &lt; div * /&gt; -->
+	<div style="height: 100px"></div>
+	<div style="background: #DADADA; width: 1500px; text-align: right">
+		An example to test positioning of tooltip is compatible with
+		scrolling: <br /> <span t:type="soup/tooltip"
+			tooltipContent="message:scrollTT" xoffset="-220" yoffset="-90"
+			style="background-color: yellow">Another tooltip</span>
+
+	</div>
+	<div style="height: 100px"></div>
+</body>
+</html>

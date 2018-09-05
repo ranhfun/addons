@@ -1,0 +1,21 @@
+﻿body{ font-family:"Microsoft YaHei"}
+.btn_bd{}
+
+/* --------------
+   *  上传提示  *
+* ------------ */
+.upload_tip{display:inline-block; }
+.upload_tip .ing{background:#fffced; border:1px solid #ffbe7a;padding:3px 6px;color:#333;}
+.upload_tip .ok{background:#F0FFE5; border:1px solid #7db259;padding:3px 6px;color:#333;}
+.upload_tip .error{background:#FBEDED;border:1px solid #F0B2B2;padding:3px 6px;color:#333;}
+
+/* --------------
+   *  按钮  *
+* ------------ */
+#upload{ float:right; border:1px solid #39D; border-radius:2px;height:24px;margin-right:5px; padding:0 10px;*padding:0 8px;background:#28C;vertical-align:middle; color:#fff;cursor:pointer; font-weight:bold;
+		/* Webkit浏览器 */
+		background:-webkit-gradient(linear,0 0,0 100%,from(#3BE), to(#28C));
+		/* Moz Firefox浏览器 */
+		background:-moz-linear-gradient(top,rgb(51,187,238) 0%,rgb(34,136,204) 100% );
+}
+

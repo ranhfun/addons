@@ -1,0 +1,16 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+        <p>
+            welcome!
+        </p>
+		<t:form>
+		<t:textarea t:id="editor" t:mixins="ueditor/mix" toolbarType="adv" value="value" width="300"/>
+		<t:textarea t:id="editor2" t:mixins="ueditor/mix" toolbarType="basic" value="value" width="300"/>
+		<t:textarea t:id="editor3" t:mixins="ueditor/mix" toolbarType="advest" value="value" width="300"/>
+		<!-- <t:textarea t:id="editor" t:mixins="ueditor/mix" value="value" width="300"/> -->
+		<input  type="submit"/>
+		<a href="#" t:type="linksubmit">tests</a>
+		</t:form>
+</html>

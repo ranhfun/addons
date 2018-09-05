@@ -1,0 +1,22 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+        <p>
+            welcome!
+        </p>
+			<t:form>
+			<t:textfield value="number"/>
+			<br/>
+			<t:textfield value="number2"/>
+			<t:submit/>
+			<div t:type="ajaxformloop" addRow="block:addDataRow" t:id="datas" source="datas" value="data" encoder="dataEncoder">
+				<input type="textfield" value="data.memo"/>
+				<t:removeRowLink>remove</t:removeRowLink>
+			</div>
+               <t:block id="addDataRow"><a t:type="addRowLink">add</a></t:block>
+			</t:form>
+			<script type="text/javascript">
+			$("#number").tapestryFieldEventManager();
+			</script>
+</html>

@@ -1,0 +1,7 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+        <p>
+            <t:snack.inplaceeditelement t:id="edit1" context="1">welcome!</t:snack.inplaceeditelement>
+        </p>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+<head>
+<title>test</title>
+</head>
+<body>
+<form t:type="form" action="">
+                    <li class="item">
+                        <span class="lab"><t:actionlink t:id="reset">备注</t:actionlink>${city}：</span> <textarea t:type="textarea" value="score.name" class="txta"></textarea>
+                    </li>
+                    </form>
+                    <image src="${asset:vfs:test.jpg}"/>
+                    <image src="${asset:context:ext/photo/1.png}"/>
+</body>
+</html>
