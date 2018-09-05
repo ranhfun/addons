@@ -27,8 +27,8 @@ ext.libraries = [
 				hibernate_ehcache:				'org.hibernate:hibernate-ehcache:' + hibernateVersion,
 				
 				// proxool
-				proxool:									'com.cloudhopper.proxoo:proxool:0.9.1',
-				proxool_cglib:						'com.cloudhopper.proxoo:proxool-cglib:0.9.1',
+				proxool:									fileTree(dir: "$rootDir/libs", include: 'proxool-0.9.1.jar'),
+				proxool_cglib:						fileTree(dir: "$rootDir/libs", include: 'proxool-cglib-0.9.1.jar'),
 				
 				// tynamo
 				tynamo_security:					'org.tynamo:tapestry-security:0.5.1',
@@ -52,7 +52,7 @@ ext.libraries = [
 				ftpserver:								'org.apache.ftpserver:ftpserver-core:1.0.6',
 				
 				// ftpclient
-				ftp4j:										'it.sauronsoftware:ftp4j:1.6',
+				ftp4j:										fileTree(dir: "$rootDir/libs", include: 'ftp4j-1.6.jar'),
         
         // resteasy
 	      resteasy_jaxrs:						'org.jboss.resteasy:resteasy-jaxrs:2.3.5.Final',
@@ -79,9 +79,6 @@ ext.libraries = [
         
         // dynamicreports
         dynamicreports:						'net.sourceforge.dynamicreports:dynamicreports-core:2.5.1',
-        
-        // chelian
-        chelian_ftp:							'me.chelian:chelian-ftp:1.0.0.0',
         
         // servlet
         servlet:				'javax.servlet:servlet-api:2.5',
@@ -201,8 +198,7 @@ subprojects {
     //        username project.getProperty(deployUsernameProperty)
     //        password project.getProperty(deployPasswordProperty)
     //    }
-    //   	url "http://27.155.177.9:9999/artifactory/repo/"
-       	//url "http://192.168.1.143:8080/artifactory/repo/"
+    //   	url "http://xxxxx/artifactory/repo/"
     //}
     //mavenRepo name: "center", urls: "http://maven.aliyun.com/nexus/content/groups/public/"
     mavenCentral()
@@ -230,10 +226,10 @@ subprojects {
 	                 // authentication(userName: project.getProperty(deployUsernameProperty), password: project.getProperty(deployPasswordProperty))
 		    }
 		   if(!levelsExists) {
-		   		snapshotRepository(url: "http://27.155.177.9:9999/artifactory/libs-snapshot-local", configureAuth)
-		   		repository(url: "http://27.155.177.9:9999/artifactory/libs-release-local", configureAuth)
+		   		snapshotRepository(url: "http://xxxx/artifactory/libs-snapshot-local", configureAuth)
+		   		repository(url: "http://xxxx/artifactory/libs-release-local", configureAuth)
 		   } else {
-		   		repository(url: 'http://27.155.177.9:9999/artifactory/' + project.getProperty(levelsProperty) + '-release-local', configureAuth)
+		   		repository(url: 'http://xxxx/artifactory/' + project.getProperty(levelsProperty) + '-release-local', configureAuth)
 		   }		    
 		  }  		  
 		}
@@ -339,7 +335,6 @@ project(':ranhfun-photo') {
 	
 	dependencies {
 		compile( libraries.tapestry_core )
-		compile( libraries.chelian_ftp )
 		compile( libraries.commons_net )
 	}
 	
